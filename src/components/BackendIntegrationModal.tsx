@@ -164,29 +164,41 @@ export const BackendIntegrationModal: React.FC<BackendIntegrationModalProps> = (
             <div className="space-y-4 p-4 rounded-xl bg-slate-50 border border-slate-200">
               <div className="space-y-1">
                 <label className="text-xs font-semibold text-slate-700">
-                  Backend API Endpoint URL
+                  Serverless / API Endpoint URL
                 </label>
                 <input
                   type="text"
-                  placeholder="e.g. http://localhost:5000/api/mas/sora or /api/sora"
+                  placeholder="e.g. /api/sora or https://your-serverless-app.com/api/sora"
                   value={formData.customUrl}
                   onChange={(e) =>
                     setFormData((prev) => ({ ...prev, customUrl: e.target.value }))
                   }
                   className="w-full px-3 py-2 bg-white border border-slate-300 rounded-lg font-mono text-xs focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
-                <span className="text-[10px] text-slate-400 block font-mono">
-                  Your backend should proxy MAS API requests or serve cached rate JSON.
+                <span className="text-[10px] text-slate-500 block font-mono">
+                  Default serverless route: <code className="text-blue-700 font-bold">/api/sora</code> (Health check at <a href="/api/health" target="_blank" rel="noreferrer" className="underline hover:text-blue-800">/api/health</a>)
                 </span>
               </div>
 
               <div className="space-y-1">
                 <label className="text-xs font-semibold text-slate-700">
-                  API Key / Bearer Token (Optional)
+                  MAS APIMG Gateway Target
+                </label>
+                <div className="p-2.5 rounded-lg bg-slate-100 text-[11px] font-mono text-slate-600 break-all select-all">
+                  https://eservices.mas.gov.sg/apimg-gw/server/monthly_statistical_bulletin_non610mssql/domestic_interest_rates_daily/views/domestic_interest_rates_daily
+                </div>
+                <span className="text-[10px] text-slate-500 block">
+                  All requests automatically include the header <code className="font-mono text-slate-700 font-semibold">KeyId: &lt;MAS_KEY_ID&gt;</code> configured in your environment.
+                </span>
+              </div>
+
+              <div className="space-y-1">
+                <label className="text-xs font-semibold text-slate-700">
+                  MAS Key ID (Manual Client Override, Optional)
                 </label>
                 <input
                   type="password"
-                  placeholder="Bearer token if endpoint is secured"
+                  placeholder="Set MAS_KEY_ID in .env or provide here temporarily"
                   value={formData.apiKey}
                   onChange={(e) =>
                     setFormData((prev) => ({ ...prev, apiKey: e.target.value }))

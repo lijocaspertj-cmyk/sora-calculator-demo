@@ -4,8 +4,8 @@ import { BackendIntegrationConfig, SoraDailyRecord } from '../types/sora';
 const LOCAL_STORAGE_KEY_CONFIG = 'sora_calc_backend_config';
 
 export const DEFAULT_CONFIG: BackendIntegrationConfig = {
-  mode: 'offline-mas-baseline',
-  customUrl: '/api/mas/sora',
+  mode: 'custom-backend',
+  customUrl: '/api/sora',
   apiKey: '',
   status: 'fallback',
   lastSyncedAt: new Date().toISOString(),
