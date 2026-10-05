@@ -1,0 +1,6 @@
+{
+  "name": "SORA Calculator SG",
+  "description": "Calculate Singapore SORA loan interest payments with MAS-backed overnight rates, compounded rates, and amortization schedules.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
